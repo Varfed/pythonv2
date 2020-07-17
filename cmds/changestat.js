@@ -96,6 +96,7 @@ module.exports = {
                 stat2 = "Friend"
                 var role = message.guild.roles.cache.find(r => r.id === '546603366063538186');
                 if(role) usr.role.add(role)
+                break;
         }
 
         const embed = new Discord.MessageEmbed()
