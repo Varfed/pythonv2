@@ -90,7 +90,12 @@ module.exports = {
                 stat2 = 'Bot'
                 var role = message.guild.roles.cache.find(r => r.id === '538251307060822018');
                 if(role) usr.roles.add(role);
-                break;                  
+                break;  
+                
+            case "friend":
+                stat2 = "Friend"
+                var role = message.guild.roles.cache.find(r => r.id === '546603366063538186');
+                if(role) usr.role.add(role)
         }
 
         const embed = new Discord.MessageEmbed()
