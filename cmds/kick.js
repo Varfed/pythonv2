@@ -3,6 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'kick',
     args: true,
+    usage: "<user> <reason>",
     execute (message, args, bot){
         if(!message.member.hasPermission("KICK_MEMBERS")) return message.reply("No.");
         let usr = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);

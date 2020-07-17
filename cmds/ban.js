@@ -3,6 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
     name: 'ban',
     args: true,
+    usage: "<user> <reason>",
     execute (message, args, bot){
         if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("No.");
         let usr = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);

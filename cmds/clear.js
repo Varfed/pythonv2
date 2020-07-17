@@ -3,6 +3,7 @@ const Discord = require('discord.js')
 module.exports ={
     name:'clear',
     args: true, 
+    usage: "<amount>",
     execute (message, args, bot) {
         if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply("No.");
         if(!args[0]) return message.channel.send("no");

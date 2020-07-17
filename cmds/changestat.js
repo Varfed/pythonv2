@@ -4,6 +4,7 @@ module.exports = {
 	name: 'changestat',
     args: true,
     guildOnly: true,
+    usage: "<user> <from stat> <to stat>",
 	execute(message, args, bot) {
         if(!message.member.roles.cache.has('733382837268381748')) return message.reply("No.");
         let usr = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
