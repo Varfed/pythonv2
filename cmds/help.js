@@ -3,7 +3,7 @@ const { prefix } = require('../settings.json')
 
 module.exports = {
     name: 'help',
-    args: true,
+    args: false,
     execute(msg, args, bot) {
       let emb = new Discord.MessageEmbed()
       .setColor("RED")
@@ -26,9 +26,9 @@ module.exports = {
       .addField("rh", "Правая рука")
 
       if(args[0] === null || args == ''){
-          message.channel.send(emb)
+          msg.channel.send(emb)
       } else if( args[0] == "stat"){
-          message.channel.send(statEm)
+          msg.channel.send(statEm)
       }
     }
 }
