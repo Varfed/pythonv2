@@ -5,7 +5,7 @@ const bot = new Discord.Client({
 const fs = require('fs')
 const config = require('./settings.json');
 let pref = config.prefix;
-let token = config.token;
+let token = process.env.token
 bot.cmds = new Discord.Collection()
 
 
