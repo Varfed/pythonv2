@@ -6,13 +6,11 @@ module.exports = {
     args: true,
     usage: "<user> <reason>",
     async execute (message, args, bot){
-        if(!message.member.roles.cache.has('733382837268381748')) return message.reply("No.");
         if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("No.");
         let usr = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
         let reason = args[1]
 
 
-        if(!message.member.me.hasPermission("BAN_MEMBERS")) return message.reply("No.")
 
 
         if(usr === message.author) return message.channel.send('Вы собрались забанить себя?')

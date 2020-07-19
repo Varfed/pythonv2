@@ -6,7 +6,6 @@ module.exports = {
     args: true,
     async execute (message, args, bot) {
         message.delete()
-        if(!message.member.roles.cache.has('733382837268381748')) return message.reply("No.");
         if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply('No')
 
         let member = bot.users.cache.get(args[0]) || bot.users.fetch(args[0]).catch(()=> null)

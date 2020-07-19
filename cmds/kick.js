@@ -9,8 +9,6 @@ module.exports = {
         let usr = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
         let reason = args[1]
 
-        if(!message.member.me.hasPermission("KICK_MEMBERS")) return message.reply("No.")
-
         if(usr === message.author) {
             message.channel.send('Вы собрались кикнуть себя?')
         }
