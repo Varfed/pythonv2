@@ -4,7 +4,7 @@ const { promptMessage } = require('../functions.js')
 module.exports = {
     name: "unban", 
     args: true,
-    execute (message, args, bot) {
+    async execute (message, args, bot) {
         message.delete()
         if(!message.member.roles.cache.has('733382837268381748')) return message.reply("No.");
         if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply('No')
