@@ -8,7 +8,6 @@ let pref = config.prefix;
 let token = process.env.token
 bot.cmds = new Discord.Collection()
 
-
 const commandFiles = fs.readdirSync('./cmds').filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
@@ -73,7 +72,10 @@ bot.on('message', async message => {
 		}
 
 		return message.channel.send(reply);
- 	}
+     }
+     
+
+
 
 
     try {
