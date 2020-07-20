@@ -13,7 +13,7 @@ module.exports = {
             message.channel.send('Вы собрались кикнуть себя?')
         }
 
-        usr.send(`**Вы были изгнаны с Python. Причина: ${reason} **`)
+
         const promptEmbed = new Discord.MessageEmbed()
         .setColor("GREEN")
         .setAuthor(`Это сообщение станет не рабочим через 30 секунд.`)
@@ -30,6 +30,8 @@ module.exports = {
                 usr.kick({
                     reason: reason
                 })
+
+                usr.send(`**Вы были изгнаны с Python. Причина: ${reason} **`)
 
                 let eSucc = new Discord.MessageEmbed()
                 .setColor('GREEN')

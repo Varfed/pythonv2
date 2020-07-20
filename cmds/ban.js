@@ -16,7 +16,7 @@ module.exports = {
         if(usr === message.author) return message.channel.send('Вы собрались забанить себя?')
 
 
-        usr.send(`**Вы были забанены на сервере Python. Причина: ${reason} **`)
+
         // usr.ban({
         //     reason: reason
         // })
@@ -43,6 +43,8 @@ module.exports = {
                 usr.ban({
                     reason: reason
                 })
+
+                usr.send(`**Вы были забанены на сервере Python. Причина: ${reason} **`)
 
 
                 let eSucc = new Discord.MessageEmbed()
