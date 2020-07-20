@@ -15,6 +15,9 @@ module.exports = {
 
         if(usr === message.author) return message.channel.send('Вы собрались забанить себя?')
 
+        if(reason == ' ' || reason == null){
+            reason = 'no given'
+        }
 
 
         // usr.ban({
@@ -49,7 +52,7 @@ module.exports = {
 
                 let eSucc = new Discord.MessageEmbed()
                 .setColor('GREEN')
-                .setTitle(`Пользователь ${usr} был успешно забанен! Причина: ${reason}`)
+                .setTitle(`Пользователь ${usr.user.username} был успешно забанен! Причина: ${reason}`)
 
                 message.channel.send(eSucc)
 

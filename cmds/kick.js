@@ -13,6 +13,9 @@ module.exports = {
             message.channel.send('Вы собрались кикнуть себя?')
         }
 
+        if(reason == ' ' || reason == null){
+            reason = 'no given'
+        }
 
         const promptEmbed = new Discord.MessageEmbed()
         .setColor("GREEN")
@@ -35,7 +38,7 @@ module.exports = {
 
                 let eSucc = new Discord.MessageEmbed()
                 .setColor('GREEN')
-                .setTitle(`Пользователь ${usr} был успешно изгнан! Причина: ${reason}`)
+                .setTitle(`Пользователь ${usr.user.username} был успешно изгнан! Причина: ${reason}`)
 
                 message.channel.send(eSucc)
 
