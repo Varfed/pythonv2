@@ -6,17 +6,49 @@ module.exports = {
     args: true,
     usage: "<user> <reason>",
     async execute (message, args, bot){
-        if(!message.member.hasPermission("BAN_MEMBERS")) return message.reply("No.");
+
+        if (message.deletable) message.delete();
+
+        // No args
+        if (!args[0]) {
+            return message.reply("Укажи кого забанить.")
+                .then(m => m.delete(5000));
+        }
+
+        // No reason
+        let reason = args.slice(1).join(" ")
+        if(reason=='' || reason==null){
+            reason = "Не указано"
+        }
+
+        // No author permissions
+        if (!message.member.hasPermission("BAN_MEMBERS")) {
+            return message.reply("❌ У тебя нету прав банить!")
+                .then(m => m.delete(5000));
+        
+        }
+        // No bot permissions
+        if (!message.guild.me.hasPermission("BAN_MEMBERS")) {
+            return message.reply("❌ У меня нет прав банить пользователей.")
+                .then(m => m.delete(5000));
+        }
         let usr = message.guild.member(message.mentions.users.first()) || message.guild.members.get(args[0]);
-        let reason = args[1]
+        // No member found
+        if (!usr) {
+            return message.reply("Пользователь не найден.")
+                .then(m => m.delete(5000));
+        }
 
+        // Can't ban urself
+        if (usr.id === message.author.id) {
+            return message.reply("Аферист? зачему себе банить?")
+                .then(m => m.delete(5000));
+        }
 
-
-
-        if(usr === message.author) return message.channel.send('Вы собрались забанить себя?')
-
-        if(reason == ' ' || reason == null){
-            reason = 'no given'
+        // Check if the user's banable
+        if (!usr.bannable) {
+            return message.reply("Я не могу его забанить, его роль лучше моей")
+                .then(m => m.delete(5000));
         }
 
 
