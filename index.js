@@ -90,4 +90,4 @@ bot.on('message', async message => {
 
 
 
-bot.login("NzMyMTkyOTc4Njk2Nzk4MjI4.XxmrJQ.Cn98HZc6s95KT8iC0uEZRoXNzgE")
+bot.login(token)
